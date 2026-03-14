@@ -1,0 +1,94 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_source": "insomnia",
+  "resources": [
+    {
+      "_id": "wrk_todo_api",
+      "_type": "workspace",
+      "name": "Todo API (Spring Boot)",
+      "description": "Spring Boot To-Do API collection"
+    },
+    {
+      "_id": "env_todo_base",
+      "_type": "environment",
+      "parentId": "wrk_todo_api",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8080"
+      }
+    },
+    {
+      "_id": "fld_todos",
+      "_type": "request_group",
+      "parentId": "wrk_todo_api",
+      "name": "Todos"
+    },
+    {
+      "_id": "req_list_todos",
+      "_type": "request",
+      "parentId": "fld_todos",
+      "name": "List All Todos",
+      "method": "GET",
+      "url": "{{ _.base_url }}/todos",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_create_todo",
+      "_type": "request",
+      "parentId": "fld_todos",
+      "name": "Create Todo",
+      "method": "POST",
+      "url": "{{ _.base_url }}/todos",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Buy groceries\"\n}"
+      }
+    },
+    {
+      "_id": "req_get_todo",
+      "_type": "request",
+      "parentId": "fld_todos",
+      "name": "Get Todo by ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/todos/1",
+      "headers": [],
+      "body": {}
+    },
+    {
+      "_id": "req_update_todo",
+      "_type": "request",
+      "parentId": "fld_todos",
+      "name": "Update Todo",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/todos/1",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"done\": true\n}"
+      }
+    },
+    {
+      "_id": "req_delete_todo",
+      "_type": "request",
+      "parentId": "fld_todos",
+      "name": "Delete Todo",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/todos/1",
+      "headers": [],
+      "body": {}
+    }
+  ]
+}
